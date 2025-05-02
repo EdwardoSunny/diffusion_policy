@@ -1,0 +1,7 @@
+* Diffusion Policy
+To train, collect shared autonomy data from [[https://github.com/EdwardoSunny/shared-autonomy-suite][sa_suite]]. Edit create a config for it in =diffusion_policy/config/task=. Set the number of training episodes to the correct number under =n_train=. If you are using a different robot, make sure to change the entries under =shape_meta= in your task config to match your observation and action space dimensions.
+
+Change the task you are training for in =train_diffusion_unet_image_workspace.yaml= under =task=. Then run the following under the =diffusion_policy/workspace= folder:
+#+begin_src bash 
+python train_diffusion_unet_image_workspace.py
+#+end_src
