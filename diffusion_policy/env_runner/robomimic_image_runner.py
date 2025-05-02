@@ -29,7 +29,7 @@ def create_env(env_meta, shape_meta, enable_render=True):
     for key, attr in shape_meta['obs'].items():
         modality_mapping[attr.get('type', 'low_dim')].append(key)
     ObsUtils.initialize_obs_modality_mapping_from_dict(modality_mapping)
-
+    print(env_meta)
     env = EnvUtils.create_env_from_metadata(
         env_meta=env_meta,
         render=False, 
@@ -160,10 +160,14 @@ class RobomimicImageRunner(BaseImageRunner):
 
         # train
         with h5py.File(dataset_path, 'r') as f:
+            print(n_train)
             for i in range(n_train):
                 train_idx = train_start_idx + i
                 enable_render = i < n_train_vis
-                init_state = f[f'data/demo_{train_idx}/states'][0]
+                print(train_idx)
+                print(f["data"].keys())
+                init_state = f[f'data/demo_{train_idx+1}/states'][0]
+                print("DONE")
 
                 def init_fn(env, init_state=init_state, 
                     enable_render=enable_render):

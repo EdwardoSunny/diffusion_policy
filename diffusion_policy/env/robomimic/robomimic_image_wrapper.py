@@ -4,6 +4,8 @@ import numpy as np
 import gym
 from gym import spaces
 from omegaconf import OmegaConf
+# import this before any robomimic or robosuite imports (mainly before any robosuite.make) to monkey patch custom shared autonomy environments into robosuite
+import sa_suite
 from robomimic.envs.env_robosuite import EnvRobosuite
 
 class RobomimicImageWrapper(gym.Env):

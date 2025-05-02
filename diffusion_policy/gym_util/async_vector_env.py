@@ -30,6 +30,8 @@ from gym.vector.utils import (
     clear_mpi_env_vars,
 )
 
+from gym import spaces
+
 __all__ = ["AsyncVectorEnv"]
 
 
